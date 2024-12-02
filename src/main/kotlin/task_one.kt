@@ -1,28 +1,21 @@
 package org.example
 
+import java.util.*
 
 fun main(args: Array<String>) {
-    print("введите число")
+    val scanner = Scanner(System.`in`)
+    val salecount = 0;
+    print("введите число: ")
     val n = readLine()!!.toInt()
-    for (i in 1..n) {
-
-        val person = Person()
-        println("введите имя")
-        person.setName()
+    val personList = mutableListOf<Person>()
+    repeat(n) {
+        print("Ввидите имя: ")
+        val name = scanner.nextLine()
+        val person = Person(name)
+        personList.add(person)
+    }
+    for (person in personList) {
         person.printName()
     }
 }
 
-open class Person() {
-
-    private var name: String = ""
-    fun setName() {
-        var newName = name
-        this.name = newName
-        name = readLine().toString()
-    }
-
-    fun printName() {
-        println("Name: $name")
-    }
-}
